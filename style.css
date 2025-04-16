@@ -1,0 +1,156 @@
+body {
+  background-color: #111827;
+  color: white;
+  font-family: sans-serif;
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section {
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+}
+
+body.light .section {
+  background: #e5e7eb;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.crypto-box {
+  background: #374151;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  transition: background 0.3s;
+}
+
+body.light .crypto-box {
+  background: #d1d5db;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.green {
+  color: #22c55e;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+select, input[type="checkbox"], input[type="text"] {
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+
+canvas {
+  background: #111827;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+body.light canvas {
+  background: #ffffff;
+}
+
+.blink {
+  animation: blink 0.5s ease-in-out;
+}
+
+@keyframes blink {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(34,197,94,0.3); }
+  100% { background-color: transparent; }
+}
+
+.favorite {
+  cursor: pointer;
+  float: right;
+  font-size: 1.2rem;
+  color: #fbbf24;
+}
+#sentiment div {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+
+#portfolio-container form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#portfolio-container input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#portfolio-container button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#portfolio-list div {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+#portfolio-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#gainers-losers {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+#gainers, #losers {
+  flex: 1;
+  min-width: 200px;
+}
+
+#gainers p {
+  color: green;
+}
+
+#losers p {
+  color: red;
+}
