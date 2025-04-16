@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Crypto Overview Dashboard</h1>
+
+    <div class="control-bar">
+      <button id="themeToggle">🌓 Toggle Theme</button>
+
+      <label>
+        <input type="checkbox" id="autoRefreshToggle" checked />
+        Auto Refresh
+      </label>
+
+      <select id="currencySelector" title="Select Currency">
+        <option value="usd" selected>USD</option>
+        <option value="eur">EUR</option>
+        <option value="gbp">GBP</option>
+      </select>
+
+      <select id="chartType" title="Select Chart Type">
+        <option value="line" selected>Line Chart</option>
+        <option value="bar">Bar Chart</option>
+        <option value="radar">Radar Chart</option>
+      </select>
+
+      <select id="fgDays" title="Select number of days">
+        <option value="7" selected>7 Days</option>
+        <option value="14">14 Days</option>
+        <option value="30">30 Days</option>
+      </select>
+
+      <input type="text" id="coinSearch" placeholder="Search coins..." />
+    </div>
+
+
+
+    <!-- Portfolio Tracker -->
+<div class="section">
+  <h2>🧮 Portfolio Tracker</h2>
+  <div id="portfolio-container">
+    <form id="portfolio-form">
+      <input type="text" id="coin-name" placeholder="Coin Name (e.g., BTC)" required />
+      <input type="number" id="coin-quantity" placeholder="Quantity" min="0.01" step="0.01" required />
+      <button type="submit">Add Coin</button>
+    </form>
+    <div id="portfolio-list"></div>
+    <div id="portfolio-total">Total Portfolio Value: $0</div>
+  </div>
+</div>
+<!-- Top Gainers and Losers -->
+<div class="section">
+  <h2>📊 Top Gainers & Losers (24h)</h2>
+  <div id="gainers-losers">
+    <div id="gainers"><h3>🚀 Top Gainers</h3></div>
+    <div id="losers"><h3>📉 Top Losers</h3></div>
+  </div>
+</div>
+<!-- Candlestick Chart -->
+<div class="section">
+  <h2>📈 Live BTC/USDT Candlestick Chart</h2>
+  <div id="tv-chart" style="height:500px;"></div>
+</div>
+
+
+    <!-- News Section -->
+    <!-- Market Stats -->
+    <div class="section">
+      <h2>🌍 Market Overview</h2>
+      <div id="market-stats">Loading...</div>
+    </div>
+
+    <!-- Crypto Prices -->
+    <div class="section">
+      <h2>💰 Live Prices</h2>
+      <div id="crypto-prices">Loading...</div>
+    </div>
+    <!-- Sentiment Analysis -->
+<div class="section">
+  <h2>🧠 Crypto Sentiment (Twitter/X)</h2>
+  <div id="sentiment">
+    <p>Loading recent sentiment data...</p>
+  </div>
+</div>
+
+    <!-- Fear & Greed -->
+    <div class="section">
+      <h2>😨 Fear & Greed Index</h2>
+      <div id="fear-greed">Loading...</div>
+      <canvas id="fgChart" height="100"></canvas>
+    </div>
+  </div>
+
+<!-- TradingView Advanced Chart Widget -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+  new TradingView.widget({
+    container_id: "tv-chart",
+    width: "100%",
+    height: "500px",
+    symbol: "BINANCE:BTCUSDT",
+    interval: "60",
+    timezone: "Etc/UTC",
+    theme: "dark",
+    style: "1", // 1 = candlestick
+    locale: "en",
+    enable_publishing: false,
+    allow_symbol_change: true,
+    details: true,
+    withdateranges: true,
+    hide_side_toolbar: false,
+    save_image: false,
+    studies: ["MACD@tv-basicstudies", "RSI@tv-basicstudies"],
+  });
+</script>
+
+</body>
+</html>
