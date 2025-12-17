@@ -3,123 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Crypto Dashboard</title>
+  <meta name="description" content="Comprehensive cryptocurrency dashboard with market data, analytics, and DeFi insights" />
+  <title>CryptoDash - Your Crypto Market Hub</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>🚀 Crypto Overview Dashboard</h1>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="logo">₿</span>
+        <span class="brand-name">CryptoDash</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active" data-page="home">🏠 Home</a></li>
+        <li><a href="#market" class="nav-link" data-page="market">📊 Market</a></li>
+        <li><a href="#portfolio" class="nav-link" data-page="portfolio">💼 Portfolio</a></li>
+        <li><a href="#news" class="nav-link" data-page="news">📰 News</a></li>
+        <li><a href="#analytics" class="nav-link" data-page="analytics">📈 Analytics</a></li>
+        <li><a href="#defi" class="nav-link" data-page="defi">🏦 DeFi</a></li>
+        <li><a href="#tools" class="nav-link" data-page="tools">🔧 Tools</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌓</button>
+    </div>
+  </nav>
 
-    <div class="control-bar">
-      <button id="themeToggle">🌓 Toggle Theme</button>
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+      <div class="hero-section">
+        <h1 class="hero-title">Welcome to CryptoDash</h1>
+        <p class="hero-subtitle">Your comprehensive cryptocurrency market intelligence platform</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-number" id="total-coins">10,000+</span>
+            <span class="stat-label">Cryptocurrencies Tracked</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Free & Open Source</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">Real-Time</span>
+            <span class="stat-label">Market Data</span>
+          </div>
+        </div>
+      </div>
 
-      <label>
-        <input type="checkbox" id="autoRefreshToggle" checked />
-        Auto Refresh
-      </label>
+      <div class="about-section">
+        <div class="about-card">
+          <h2>📖 About This Project</h2>
+          <p>
+            CryptoDash is a comprehensive cryptocurrency market dashboard designed to give you complete visibility 
+            into the crypto ecosystem. Built with 100% free and open-source APIs, this platform provides real-time 
+            market data, portfolio tracking, news sentiment analysis, and DeFi insights—all in one place.
+          </p>
+          <p>
+            Whether you're a day trader, long-term investor, or just crypto-curious, CryptoDash helps you make 
+            informed decisions by aggregating data from multiple reliable sources including CoinGecko, DeFi Llama, 
+            CryptoCompare, and more.
+          </p>
+        </div>
 
-      <select id="currencySelector" title="Select Currency">
-        <option value="usd" selected>USD</option>
-        <option value="eur">EUR</option>
-        <option value="gbp">GBP</option>
-      </select>
+        <div class="about-card">
+          <h2>👨‍💻 About the Creator</h2>
+          <p>
+            Created by <strong>Pedro</strong>, a passionate developer and cryptocurrency enthusiast dedicated to 
+            making crypto market data accessible to everyone. This project was born from the need for a unified 
+            dashboard that doesn't require expensive API subscriptions or complex setups.
+          </p>
+          <p>
+            <strong>Mission:</strong> To democratize access to cryptocurrency market intelligence through free, 
+            open-source tools that empower individuals to navigate the crypto markets with confidence.
+          </p>
+          <div class="creator-links">
+            <a href="https://github.com/pedronice013-spec" target="_blank" rel="noopener" class="social-link">
+              <span>🐙</span> GitHub
+            </a>
+            <a href="#" class="social-link">
+              <span>🐦</span> Twitter
+            </a>
+            <a href="#" class="social-link">
+              <span>💼</span> LinkedIn
+            </a>
+          </div>
+        </div>
 
-      <select id="chartType" title="Select Chart Type">
-        <option value="line" selected>Line Chart</option>
-        <option value="bar">Bar Chart</option>
-        <option value="radar">Radar Chart</option>
-      </select>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Live Market Data</h3>
+            <p>Real-time prices, market cap, volume, and 24h changes for thousands of cryptocurrencies</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Portfolio Tracking</h3>
+            <p>Track your holdings, calculate total value, and monitor performance across all your assets</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📰</div>
+            <h3>News & Sentiment</h3>
+            <p>Stay updated with latest crypto news and AI-powered sentiment analysis</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Advanced Analytics</h3>
+            <p>Fear & Greed Index, market trends, historical charts, and technical indicators</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏦</div>
+            <h3>DeFi Insights</h3>
+            <p>Track Total Value Locked (TVL) across major DeFi protocols and platforms</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Useful Tools</h3>
+            <p>Gas tracker, profit calculator, currency converter, and more utilities</p>
+          </div>
+        </div>
 
-      <select id="fgDays" title="Select number of days">
-        <option value="7" selected>7 Days</option>
-        <option value="14">14 Days</option>
-        <option value="30">30 Days</option>
-      </select>
+        <div class="about-card tech-stack">
+          <h2>🛠️ Technology Stack</h2>
+          <div class="tech-tags">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript (ES6+)</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">CoinGecko API</span>
+            <span class="tech-tag">DeFi Llama API</span>
+            <span class="tech-tag">CryptoCompare API</span>
+            <span class="tech-tag">GitHub Pages</span>
+          </div>
+        </div>
 
-      <input type="text" id="coinSearch" placeholder="Search coins..." />
+        <div class="cta-section">
+          <h2>Ready to Explore?</h2>
+          <p>Start by checking out the live market data or building your portfolio tracker</p>
+          <div class="cta-buttons">
+            <button class="cta-btn primary" onclick="navigateToPage('market')">
+              📊 View Market Data
+            </button>
+            <button class="cta-btn secondary" onclick="navigateToPage('portfolio')">
+              💼 Track Portfolio
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- MARKET PAGE -->
+    <div id="page-market" class="page">
+      <div class="page-header">
+        <h1>📊 Market Overview</h1>
+        <p>Real-time cryptocurrency market data and statistics</p>
+      </div>
 
+      <!-- Control Bar -->
+      <div class="control-bar">
+        <label for="currencySelector">Currency:</label>
+        <select id="currencySelector">
+          <option value="usd" selected>USD ($)</option>
+          <option value="eur">EUR (€)</option>
+          <option value="gbp">GBP (£)</option>
+          <option value="jpy">JPY (¥)</option>
+        </select>
 
-    <!-- Portfolio Tracker -->
-<div class="section">
-  <h2>🧮 Portfolio Tracker</h2>
-  <div id="portfolio-container">
-    <form id="portfolio-form">
-      <input type="text" id="coin-name" placeholder="Coin Name (e.g., BTC)" required />
-      <input type="number" id="coin-quantity" placeholder="Quantity" min="0.01" step="0.01" required />
-      <button type="submit">Add Coin</button>
-    </form>
-    <div id="portfolio-list"></div>
-    <div id="portfolio-total">Total Portfolio Value: $0</div>
-  </div>
-</div>
-<!-- Top Gainers and Losers -->
-<div class="section">
-  <h2>📊 Top Gainers & Losers (24h)</h2>
-  <div id="gainers-losers">
-    <div id="gainers"><h3>🚀 Top Gainers</h3></div>
-    <div id="losers"><h3>📉 Top Losers</h3></div>
-  </div>
-</div>
-<!-- Candlestick Chart -->
-<div class="section">
-  <h2>📈 Live BTC/USDT Candlestick Chart</h2>
-  <div id="tv-chart" style="height:500px;"></div>
-</div>
+        <input type="text" id="coinSearch" placeholder="Search coins..." />
+        
+        <button id="refreshMarket" class="refresh-btn">🔄 Refresh</button>
+      </div>
 
+      <!-- Market Stats -->
+      <section class="section">
+        <h2>🌍 Global Market Stats</h2>
+        <div id="market-stats" class="loading">Loading...</div>
+      </section>
 
-    <!-- News Section -->
-    <!-- Market Stats -->
-    <div class="section">
-      <h2>🌍 Market Overview</h2>
-      <div id="market-stats">Loading...</div>
+      <!-- Top Gainers & Losers -->
+      <section class="section">
+        <h2>📊 Top Movers (24h)</h2>
+        <div id="gainers-losers">
+          <div id="gainers" class="loading">
+            <h3>🚀 Top Gainers</h3>
+            <p>Loading...</p>
+          </div>
+          <div id="losers" class="loading">
+            <h3>📉 Top Losers</h3>
+            <p>Loading...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Crypto Prices -->
+      <section class="section">
+        <h2>💰 Live Cryptocurrency Prices</h2>
+        <div id="crypto-prices" class="loading">Loading...</div>
+      </section>
     </div>
 
-    <!-- Crypto Prices -->
-    <div class="section">
-      <h2>💰 Live Prices</h2>
-      <div id="crypto-prices">Loading...</div>
+    <!-- PORTFOLIO PAGE -->
+    <div id="page-portfolio" class="page">
+      <div class="page-header">
+        <h1>💼 Portfolio Tracker</h1>
+        <p>Manage and track your cryptocurrency holdings</p>
+      </div>
+
+      <section class="section">
+        <h2>Add to Portfolio</h2>
+        <form id="portfolio-form">
+          <input type="text" id="coin-name" placeholder="Coin symbol (e.g., BTC)" required />
+          <input type="number" id="coin-quantity" placeholder="Quantity" min="0.00000001" step="0.00000001" required />
+          <button type="submit">➕ Add Coin</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2>Your Holdings</h2>
+        <div id="portfolio-list"></div>
+        <div id="portfolio-total">
+          Total Portfolio Value: <span id="total-value">$0.00</span>
+        </div>
+      </section>
     </div>
-    <!-- Sentiment Analysis -->
-<div class="section">
-  <h2>🧠 Crypto Sentiment (Twitter/X)</h2>
-  <div id="sentiment">
-    <p>Loading recent sentiment data...</p>
-  </div>
-</div>
 
-    <!-- Fear & Greed -->
-    <div class="section">
-      <h2>😨 Fear & Greed Index</h2>
-      <div id="fear-greed">Loading...</div>
-      <canvas id="fgChart" height="100"></canvas>
+    <!-- NEWS PAGE -->
+    <div id="page-news" class="page">
+      <div class="page-header">
+        <h1>📰 Crypto News & Sentiment</h1>
+        <p>Latest cryptocurrency news and market sentiment analysis</p>
+      </div>
+
+      <section class="section">
+        <h2>🧠 Market Sentiment</h2>
+        <div id="sentiment" class="loading">Loading...</div>
+      </section>
+
+      <section class="section">
+        <h2>📰 Latest News</h2>
+        <div id="news-feed" class="loading">Loading...</div>
+      </section>
     </div>
+
+    <!-- ANALYTICS PAGE -->
+    <div id="page-analytics" class="page">
+      <div class="page-header">
+        <h1>📈 Market Analytics</h1>
+        <p>Advanced market indicators and trend analysis</p>
+      </div>
+
+      <!-- Fear & Greed -->
+      <section class="section">
+        <h2>😨 Fear & Greed Index</h2>
+        <div class="control-bar">
+          <label for="fgDays">Time Period:</label>
+          <select id="fgDays">
+            <option value="7" selected>7 Days</option>
+            <option value="14">14 Days</option>
+            <option value="30">30 Days</option>
+          </select>
+          <label for="chartType">Chart Type:</label>
+          <select id="chartType">
+            <option value="line" selected>Line</option>
+            <option value="bar">Bar</option>
+          </select>
+        </div>
+        <div id="fear-greed" class="loading">Loading...</div>
+        <div class="chart-container">
+          <canvas id="fgChart"></canvas>
+        </div>
+      </section>
+
+      <!-- TradingView Chart -->
+      <section class="section">
+        <h2>📈 BTC/USDT Live Chart</h2>
+        <div id="tv-chart" class="chart-container" style="height:500px;"></div>
+      </section>
+    </div>
+
+    <!-- DEFI PAGE -->
+    <div id="page-defi" class="page">
+      <div class="page-header">
+        <h1>🏦 DeFi Analytics</h1>
+        <p>Decentralized Finance protocols and Total Value Locked (TVL)</p>
+      </div>
+
+      <section class="section">
+        <h2>💎 Top DeFi Protocols by TVL</h2>
+        <div id="defi-protocols" class="loading">Loading...</div>
+      </section>
+
+      <section class="section">
+        <h2>⛓️ TVL by Chain</h2>
+        <div id="chain-tvl" class="loading">Loading...</div>
+      </section>
+    </div>
+
+    <!-- TOOLS PAGE -->
+    <div id="page-tools" class="page">
+      <div class="page-header">
+        <h1>🔧 Crypto Tools</h1>
+        <p>Useful calculators and utilities for crypto users</p>
+      </div>
+
+      <!-- Gas Tracker -->
+      <section class="section">
+        <h2>⛽ Ethereum Gas Tracker</h2>
+        <div id="gas-tracker" class="loading">Loading...</div>
+      </section>
+
+      <!-- Profit Calculator -->
+      <section class="section">
+        <h2>💰 Profit/Loss Calculator</h2>
+        <div class="calculator">
+          <input type="number" id="buy-price" placeholder="Buy price" />
+          <input type="number" id="sell-price" placeholder="Sell price" />
+          <input type="number" id="quantity" placeholder="Quantity" />
+          <button onclick="calculateProfit()">Calculate</button>
+          <div id="calc-result"></div>
+        </div>
+      </section>
+
+      <!-- Currency Converter -->
+      <section class="section">
+        <h2>💱 Crypto Converter</h2>
+        <div class="converter">
+          <input type="number" id="convert-amount" placeholder="Amount" value="1" />
+          <select id="from-crypto">
+            <option value="bitcoin">Bitcoin (BTC)</option>
+            <option value="ethereum">Ethereum (ETH)</option>
+          </select>
+          <span>→</span>
+          <select id="to-currency">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+          </select>
+          <button onclick="convertCrypto()">Convert</button>
+          <div id="convert-result"></div>
+        </div>
+      </section>
+    </div>
+
   </div>
 
-<!-- TradingView Advanced Chart Widget -->
-<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-<script type="text/javascript">
-  new TradingView.widget({
-    container_id: "tv-chart",
-    width: "100%",
-    height: "500px",
-    symbol: "BINANCE:BTCUSDT",
-    interval: "60",
-    timezone: "Etc/UTC",
-    theme: "dark",
-    style: "1", // 1 = candlestick
-    locale: "en",
-    enable_publishing: false,
-    allow_symbol_change: true,
-    details: true,
-    withdateranges: true,
-    hide_side_toolbar: false,
-    save_image: false,
-    studies: ["MACD@tv-basicstudies", "RSI@tv-basicstudies"],
-  });
-</script>
+  <!-- Footer -->
+  <footer>
+    <p>Data provided by CoinGecko, DeFi Llama, CryptoCompare & TradingView</p>
+    <p>Last updated: <span id="last-update">Never</span></p>
+    <p><small>⚠️ For informational purposes only. Not financial advice.</small></p>
+    <p><small>Made with ❤️ by Pedro | <a href="https://github.com/pedronice013-spec/Pedro" target="_blank">View on GitHub</a></small></p>
+  </footer>
 
+  <!-- TradingView Widget -->
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
